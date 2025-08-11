@@ -1,0 +1,110 @@
+@import "../../../assets/theme/Variables.scss";
+
+.user-section {
+	display: flex;
+	gap: 20px;
+	border-bottom: 1px solid rgba($whitePrimary, 0.12);
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	.user-image {
+		position: relative;
+		width: fit-content;
+
+		img {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			object-fit: contain;
+			border: 1px solid rgba($whitePrimary, 0.12);
+		}
+
+		.edit-image {
+			background-color: $themeCradBg;
+			width: 30px;
+			min-width: 30px;
+			height: 30px;
+			border-radius: 100%;
+			border: 0.2px solid rgba($whitePrimary, 0.2);
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			bottom: -8px;
+			right: 14px;
+
+			input {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				cursor: pointer;
+			}
+
+			svg {
+				width: 20px;
+				height: 20px;
+				min-width: 20px;
+			}
+
+			.spinner-border {
+				width: 16px;
+				height: 16px;
+				min-width: 16px;
+				color: $primary;
+			}
+		}
+	}
+
+	.client-info {
+		h2 {
+			color: $whitePrimary;
+			font-weight: $semiBold;
+			font-size: 32px;
+			line-height: 42px;
+			margin: 0px 0px 5px;
+		}
+
+		.inner-info {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			width: 45%;
+
+			h6 {
+				font-size: 14px;
+				line-height: normal;
+				color: $whitePrimary;
+				margin: 0px;
+				font-weight: $regular;
+				opacity: 0.5;
+				width: 110px;
+			}
+
+			p {
+				font-size: 14px;
+				line-height: normal;
+				color: $whitePrimary;
+				margin: 0px;
+				font-weight: $regular;
+				display: flex;
+				align-items: center;
+				gap: 20px;
+			}
+		}
+	}
+}
+
+.change-password-section {
+	min-height: calc(100vh - 430px);
+	.section-name {
+		h3 {
+			font-size: 20px;
+			line-height: 25px;
+			color: $whitePrimary;
+			font-weight: $semiBold;
+			margin: 0px 0px 20px;
+		}
+	}
+}

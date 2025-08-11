@@ -1,0 +1,49 @@
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Running prettier fix on all files'
+npm run format:fix ||
+(
+    echo '🤢🤮🤢🤮. Prettier fix Failed. You will have to fix prettier issues manually';
+    true;
+)
+
+echo 'Running eslint fix on all files'
+npm run lint:fix ||
+(
+    echo '🤢🤮🤢🤮. Linting fix Failed. You will have to fix linting issues manually';
+    true;
+)
+
+# Check Prettier standards
+npm run format:check ||
+(
+    echo '🤢🤮🤢🤮. Prettier Check Failed. Run npm run format, add changes and try commit again.';
+    false;
+)
+
+# Check ESLint Standards
+npm run lint:check ||
+(
+        echo '😤🏀👋😤 ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+        false;
+)
+
+# Check tsconfig standards
+npm run type-check ||
+(
+    echo '🤡😂❌🤡 Make the changes required above.'
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+
+npm run build ||
+(
+    echo '❌👷🔨❌ React build failed: View the errors above to see why.
+    '
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'

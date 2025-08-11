@@ -1,0 +1,265 @@
+@import "../../../assets/theme/Variables.scss";
+
+.userauth-main {
+	background-color: $authBase;
+	padding: 15px 0px;
+	.userauth_banner_group {
+		position: sticky;
+		top: 15px;
+		left: 0;
+		border-radius: 40px;
+		overflow: hidden;
+		.banner_inner {
+			position: relative;
+			img {
+				width: 100%;
+				border-radius: 40px;
+				height: calc(100vh - 30px);
+				object-fit: cover;
+				@media screen and (max-width: 767px) {
+					height: 300px;
+				}
+			}
+
+			.banner_content {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-flow: column;
+				align-items: flex-start;
+				justify-content: flex-end;
+				padding: 50px 50px 90px 50px;
+				color: $white;
+				@media screen and (max-width: 767px) {
+					padding: 20px;
+				}
+				@media (min-width: 768px) and (max-width: 991px) {
+					padding: 20px;
+				}
+				h1 {
+					font-size: 40px !important;
+					span {
+						color: $primary;
+					}
+					@media screen and (max-width: 767px) {
+						font-size: 20px;
+					}
+				}
+
+				p {
+					font-size: 14px;
+					font-weight: 300;
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+	.auth-video-card {
+		position: sticky;
+		top: 10px;
+		.card-video {
+			position: relative;
+			video {
+				width: 100%;
+				border-radius: 40px;
+				height: 100vh;
+				object-fit: cover;
+			}
+
+			.card-content {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-flow: column;
+				align-items: flex-start;
+				justify-content: flex-end;
+				padding: 50px 50px 100px 50px;
+				max-width: 500px;
+
+				h2 {
+					color: $white;
+					font-size: 55px;
+					font-weight: $regular;
+					line-height: 65px;
+				}
+
+				p {
+					color: $white;
+					font-size: 16px;
+					font-weight: $light;
+					line-height: 26px;
+				}
+				@media screen and (max-width: 991px) and (min-width: 768px) {
+					h2 {
+						font-size: 42px;
+						line-height: 52px;
+					}
+				}
+				@media screen and (max-width: 1199px) and (min-width: 992px) {
+					h2 {
+						font-size: 52px;
+						line-height: 62px;
+					}
+				}
+			}
+		}
+	}
+
+	.userauth-form {
+		display: flex;
+		flex-flow: column;
+		gap: 40px;
+		min-height: 100vh;
+		justify-content: space-between;
+		padding: 60px;
+		background-color: $authCradBg;
+		border-radius: 40px;
+		.auth-logo {
+			text-align: center;
+			img {
+				width: 80px;
+				height: 80px;
+				object-fit: contain;
+			}
+		}
+		.form-box {
+			.heading {
+				text-align: center;
+				margin-bottom: 50px;
+				h2 {
+					color: $white;
+					font-size: 42px;
+					font-weight: $light;
+					line-height: 48px;
+					margin-bottom: 12px;
+				}
+
+				p {
+					color: $inputColor;
+					font-size: 14px;
+					font-weight: $regular;
+					line-height: 20px;
+					span {
+						font-weight: $extraBold;
+					}
+				}
+			}
+
+			.form-section {
+				.form-checkbox-align {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					gap: 15px;
+					margin-bottom: 40px;
+
+					.forgot-password-link {
+						font-size: 16px;
+						font-weight: $regular;
+						line-height: 20px;
+						color: $whitePrimary;
+						text-decoration: none;
+					}
+				}
+
+				.resend_otp {
+					text-align: center;
+					p {
+						color: $white;
+						font-size: 18px;
+						font-weight: $regular;
+						line-height: 24px;
+						span {
+							font-weight: $extraBold;
+							cursor: pointer;
+						}
+					}
+				}
+
+				.action-btn {
+					button {
+						margin-bottom: 20px;
+					}
+
+					.remember-password {
+						text-align: center;
+						p {
+							color: $white;
+							font-size: 16px;
+							font-weight: $regular;
+							line-height: 24px;
+							margin: 0px;
+							a {
+								color: $primary;
+								text-decoration: none;
+							}
+						}
+					}
+
+					.resend-code-btn {
+						text-align: center;
+						p {
+							color: $white;
+							font-size: 16px;
+							font-weight: $regular;
+							line-height: 24px;
+							margin: 0px;
+							span {
+								color: $primary;
+								text-decoration: none;
+							}
+							button {
+								background-color: transparent;
+								padding: 0px;
+								border: 0px;
+								display: inline-block;
+								color: $primary;
+								margin: 0px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.form-bottom {
+			text-align: center;
+
+			.account-route {
+				margin-bottom: 6px;
+
+				p {
+					color: $white;
+					font-size: 16px;
+					font-weight: $regular;
+					line-height: 24px;
+					margin: 0px;
+				}
+			}
+		}
+		@media only screen and (max-width: 767px) {
+			min-height: auto;
+		}
+		@media only screen and (max-width: 991px) {
+			padding: 60px 20px;
+		}
+	}
+}
+//back-to-login
+.back-to-login {
+	text-align: center;
+	a {
+		color: $primary;
+		font-size: 14px;
+		line-height: normal;
+		font-weight: $regular;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

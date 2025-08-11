@@ -1,0 +1,119 @@
+@import "../../../assets/theme/Variables.scss";
+
+.status-card-section {
+	.status-card {
+		background-color: $themeCradBg;
+		padding: 20px;
+		border-radius: 10px;
+		margin-bottom: 20px;
+		position: relative;
+		.card-top {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 30px;
+			gap: 10px;
+			.name {
+				h4 {
+					color: $whitePrimary;
+					font-weight: $semiBold;
+					font-size: 15px;
+					line-height: 20px;
+					margin: 0px;
+				}
+			}
+			// svg{
+			//     width: 20px;
+			//     height: 20px;
+			//     min-width: 20px;
+			// }
+		}
+		.card-mid {
+			margin-bottom: 0px;
+			p {
+				color: $whitePrimary;
+				font-weight: $semiBold;
+				font-size: 30px;
+				line-height: 40px;
+				margin: 0px;
+			}
+		}
+		.action-link {
+			text-align: right;
+			a {
+				color: $primary;
+				font-weight: $bold;
+				font-size: 14px;
+				line-height: 18px;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+//revenue-card
+.revenue-card {
+	background-color: $themeCradBg;
+	padding: 20px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	.name {
+		margin-bottom: 30px;
+		h3 {
+			color: $whitePrimary;
+			font-weight: $semiBold;
+			font-size: 16px;
+			line-height: 20px;
+			margin: 0px 0px 10px;
+		}
+		p {
+			color: $whitePrimary;
+			font-weight: $semiBold;
+			font-size: 30px;
+			line-height: 40px;
+			margin: 0px;
+		}
+	}
+	.form-group {
+		.form-control {
+			max-width: 152px;
+			margin-left: auto;
+		}
+	}
+	.card-mid {
+	}
+}
+
+//dash-transactions
+.dash-transactions {
+	.dash-transactions-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 20px;
+		.heading {
+			h4 {
+				color: $whitePrimary;
+				font-weight: $semiBold;
+				font-size: 22px;
+				line-height: 30px;
+				margin: 0px;
+			}
+		}
+		.action-link {
+			a {
+				color: $primary;
+				font-weight: $semiBold;
+				font-size: 14px;
+				line-height: 18px;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

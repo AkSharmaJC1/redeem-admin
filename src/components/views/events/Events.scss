@@ -1,0 +1,142 @@
+@import "../../../assets/theme/Variables.scss";
+
+//event-tab
+.event-tab {
+	ul {
+		margin: 0px 0px 20px;
+		padding: 0px;
+		display: flex;
+		gap: 5px;
+		li {
+			width: calc(100% / 3);
+			color: #ababab;
+			list-style: none;
+			border-bottom: 2px solid #ababab;
+			padding-bottom: 4px;
+			font-size: 16px;
+			line-height: 22px;
+			font-weight: $semiBold;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			position: relative;
+			svg {
+				width: 16px;
+				height: 16px;
+				min-width: 16px;
+			}
+			&.active {
+				color: $primaryAccent;
+				border-color: $primaryAccent;
+			}
+			&.half-active {
+				color: $primaryAccent;
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -2px;
+					left: 0px;
+					width: 120px;
+					height: 2px;
+					background-color: $primaryAccent;
+				}
+			}
+		}
+	}
+}
+
+//add-row-btn
+.add-row-btn {
+	margin-bottom: 20px;
+	span {
+		color: $primaryAccent;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		font-weight: $bold;
+		font-size: 16px;
+		cursor: pointer;
+		width: fit-content;
+		svg {
+			fill: $primaryAccent;
+		}
+		&:hover {
+			color: $white;
+			svg {
+				fill: $white;
+			}
+		}
+	}
+}
+
+//cheduling-slot-section
+.scheduling-slot-section {
+	border-bottom: 1px dashed rgba($white, 0.2);
+	margin-bottom: 20px;
+	.heading-name {
+		h3 {
+			font-size: 16px;
+			line-height: 22px;
+			font-weight: $semiBold;
+			color: $whitePrimary;
+			margin-bottom: 20px;
+		}
+	}
+
+	.slot-row {
+		border-bottom: 1px solid rgba($white, 0.2);
+		margin-bottom: 20px;
+		&:nth-child(1) {
+			border-bottom: 0px;
+		}
+	}
+}
+
+//passes-row
+.passes-row {
+	border-bottom: 1px solid rgba($white, 0.2);
+	margin-bottom: 20px;
+}
+
+//slot-border
+.slot-border {
+	border-bottom-color: $primary !important;
+	border-bottom-style: solid !important;
+	padding: 0px !important;
+}
+
+.summery-btns {
+	display: flex;
+	gap: 15px;
+	justify-content: space-between;
+	margin-bottom: 30px;
+	align-items: center;
+	margin-top: -10px;
+	.edit-summery {
+		position: relative;
+
+		.tooltip-content {
+			background-color: rgba(#081217, 1);
+			padding: 10px;
+			border-radius: 10px;
+			width: 200px;
+			position: absolute;
+			top: 25px;
+			left: 10px;
+			display: none;
+			z-index: 100;
+			p {
+				color: $white;
+				font-size: 14px;
+				margin: 0;
+				font-weight: $regular;
+				opacity: 0.7;
+			}
+		}
+		&:hover {
+			.tooltip-content {
+				display: block;
+			}
+		}
+	}
+}

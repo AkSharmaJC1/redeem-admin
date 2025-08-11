@@ -1,0 +1,35 @@
+// @import "../../../assets/theme/Variables.scss";
+@use "../../../assets/theme/Variables.scss" as *;
+
+.no-internet-page {
+	.page-inner {
+		.page-box {
+			text-align: center;
+			.box-img {
+				margin-bottom: 50px;
+				img {
+					width: 100%;
+					max-width: 500px;
+					object-fit: contain;
+				}
+			}
+			.content {
+				h2 {
+					font-size: 24px;
+					font-weight: 500;
+					color: $whitePrimary;
+					margin-bottom: 1rem;
+				}
+				p {
+					font-size: 18px;
+					color: #cecece;
+					margin-bottom: 20px;
+				}
+				.theme-button {
+					min-width: 120px;
+					margin: 0px auto;
+				}
+			}
+		}
+	}
+}
