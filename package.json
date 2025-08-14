@@ -9,7 +9,7 @@
 		"build:development": "tsc -b && vite build --mode development",
 		"build:production": "tsc -b && vite build --mode production",
 		"build:staging": "tsc -b && vite build --mode staging",
-		"start": "vite preview --port 6002",
+		"start": "vite preview --port 6003",
 		"lint": "eslint . --fix --max-warnings=0",
 		"format": "prettier . --write",
 		"prepare": "husky install",
