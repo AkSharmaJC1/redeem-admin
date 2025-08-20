@@ -7,12 +7,18 @@
 		border-radius: 10px;
 		margin-bottom: 20px;
 		position: relative;
+
 		.card-top {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			margin-bottom: 30px;
 			gap: 10px;
+
+			@media only screen and (max-width: 767px) {
+				flex-wrap: wrap;
+			}
+
 			.name {
 				h4 {
 					color: $whitePrimary;
@@ -22,14 +28,17 @@
 					margin: 0px;
 				}
 			}
+
 			// svg{
 			//     width: 20px;
 			//     height: 20px;
 			//     min-width: 20px;
 			// }
 		}
+
 		.card-mid {
 			margin-bottom: 0px;
+
 			p {
 				color: $whitePrimary;
 				font-weight: $semiBold;
@@ -38,14 +47,17 @@
 				margin: 0px;
 			}
 		}
+
 		.action-link {
 			text-align: right;
+
 			a {
 				color: $primary;
 				font-weight: $bold;
 				font-size: 14px;
 				line-height: 18px;
 				text-decoration: none;
+
 				&:hover {
 					text-decoration: underline;
 				}
@@ -60,8 +72,10 @@
 	padding: 20px;
 	border-radius: 10px;
 	margin-bottom: 20px;
+
 	.name {
 		margin-bottom: 30px;
+
 		h3 {
 			color: $whitePrimary;
 			font-weight: $semiBold;
@@ -69,6 +83,7 @@
 			line-height: 20px;
 			margin: 0px 0px 10px;
 		}
+
 		p {
 			color: $whitePrimary;
 			font-weight: $semiBold;
@@ -77,14 +92,15 @@
 			margin: 0px;
 		}
 	}
+
 	.form-group {
 		.form-control {
 			max-width: 152px;
 			margin-left: auto;
 		}
 	}
-	.card-mid {
-	}
+
+	.card-mid {}
 }
 
 //dash-transactions
@@ -94,6 +110,7 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 20px;
+
 		.heading {
 			h4 {
 				color: $whitePrimary;
@@ -103,6 +120,7 @@
 				margin: 0px;
 			}
 		}
+
 		.action-link {
 			a {
 				color: $primary;
@@ -110,6 +128,7 @@
 				font-size: 14px;
 				line-height: 18px;
 				text-decoration: none;
+
 				&:hover {
 					text-decoration: underline;
 				}

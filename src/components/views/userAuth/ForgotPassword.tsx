@@ -69,7 +69,7 @@ const ForgotPassword: React.FC = () => {
 	return (
 		<div className="userauth-main">
 			<div className="container-fluid">
-				<div className="row">
+				<div className="row g-4">
 					<div className="col-md-6 col-lg-6 col-xl-6 col-xxl-7">
 						{/* <div className="auth-video-card">
 							<div className="card-video">

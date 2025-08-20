@@ -195,7 +195,7 @@ input::-webkit-inner-spin-button {
 		display: none;
 	}
 
-	input:checked ~ .checkmark:after {
+	input:checked~.checkmark:after {
 		display: block;
 	}
 
@@ -242,7 +242,7 @@ input::-webkit-inner-spin-button {
 		border: 1px solid rgba($whitePrimary, 0.1);
 	}
 
-	input:checked ~ .checkmark {
+	input:checked~.checkmark {
 		border-color: rgba($primary, 1);
 	}
 
@@ -252,7 +252,7 @@ input::-webkit-inner-spin-button {
 		display: none;
 	}
 
-	input:checked ~ .checkmark:after {
+	input:checked~.checkmark:after {
 		display: block;
 	}
 
@@ -461,7 +461,7 @@ button:disabled {
 	}
 
 	.otp-inputs {
-		> div {
+		>div {
 			display: flex;
 			align-items: center;
 			gap: 10px;
@@ -488,6 +488,7 @@ button:disabled {
 		--bs-form-select-bg-img: url("../images/down-arrow-icon.svg");
 		padding-right: 35px;
 		background-size: 22px 20px;
+
 		option {
 			color: $white;
 			background-color: #0c1a22;
@@ -509,6 +510,7 @@ button:disabled {
 			color: $white;
 		}
 	}
+
 	&.input-sm {
 		.form-control {
 			padding: 10px 14px;
@@ -527,18 +529,22 @@ button:disabled {
 		line-height: 20px !important;
 		height: auto !important;
 		border-radius: 12px !important;
+
 		&:focus {
 			border-color: rgba($primary, 1) !important;
 		}
 	}
+
 	.flag-dropdown {
 		border-radius: 12px 0 0 12px !important;
 	}
 
 	.flag-dropdown {
 		background-color: transparent !important;
+
 		.selected-flag {
 			padding-left: 12px;
+
 			&:hover {
 				background-color: transparent !important;
 			}
@@ -628,6 +634,7 @@ button:disabled {
 				right: 8px;
 				z-index: 1;
 				border-radius: 100px;
+
 				&.close-btn-border {
 					svg {
 						border: 1px solid $whitePrimary;
@@ -646,7 +653,7 @@ button:disabled {
 				opacity: 0;
 			}
 
-			.item-radio:checked + img {
+			.item-radio:checked+img {
 				border-color: $primary;
 			}
 		}
@@ -672,6 +679,7 @@ button:disabled {
 			display: flex;
 			align-items: center;
 			gap: 40px;
+
 			li {
 				list-style: none;
 				display: inline-block;
@@ -683,6 +691,7 @@ button:disabled {
 				opacity: 0.5;
 				position: relative;
 				cursor: pointer;
+
 				&:after {
 					content: "";
 					position: absolute;
@@ -693,11 +702,13 @@ button:disabled {
 					background-color: $white;
 					opacity: 0.5;
 				}
+
 				&:nth-last-child(1) {
 					&::after {
 						display: none;
 					}
 				}
+
 				&.active {
 					opacity: 1;
 				}
@@ -711,8 +722,16 @@ button:disabled {
 		align-items: flex-start;
 		justify-content: flex-end;
 
+		@media only screen and (max-width: 767px) {
+			justify-content: flex-start;
+		}
+
 		.search-box {
 			min-width: 350px;
+
+			@media only screen and (max-width: 767px) {
+				width: 100%;
+			}
 		}
 	}
 }
@@ -733,7 +752,9 @@ button:disabled {
 			position: sticky;
 			top: -1px;
 			z-index: 1;
+
 			tr {
+
 				td,
 				th {
 					color: $white;
@@ -795,9 +816,12 @@ button:disabled {
 		border-radius: 10px;
 	}
 }
+
 .custom-toast {
-	color: black; /* Text color */
-	background-color: $primary; /* Background color */
+	color: black;
+	/* Text color */
+	background-color: $primary;
+	/* Background color */
 }
 
 //switch-taggle-content
@@ -854,15 +878,15 @@ button:disabled {
 			}
 		}
 
-		input:checked + .switch-slider {
+		input:checked+.switch-slider {
 			background-color: $primary;
 		}
 
-		input:focus + .switch-slider {
+		input:focus+.switch-slider {
 			box-shadow: 0 0 1px $primary;
 		}
 
-		input:checked + .switch-slider:before {
+		input:checked+.switch-slider:before {
 			-webkit-transform: translateX(22px);
 			-ms-transform: translateX(22px);
 			transform: translateX(22px);
@@ -942,10 +966,12 @@ button:disabled {
 		padding-bottom: 15px;
 		margin-bottom: 15px;
 		border-bottom: 1px solid rgba($whitePrimary, 0.12);
+
 		.event-image {
 			display: flex;
 			align-items: center;
 			gap: 10px;
+
 			img {
 				width: 150px;
 				height: 128px;
@@ -953,9 +979,11 @@ button:disabled {
 				border-radius: 5.233px;
 			}
 		}
+
 		.detail-content {
 			.detail-item {
 				margin-bottom: 10px;
+
 				h5 {
 					font-size: 14px;
 					font-weight: $semiBold;
@@ -964,6 +992,7 @@ button:disabled {
 					margin: 0px;
 					opacity: 0.5;
 				}
+
 				p {
 					font-size: 16px;
 					font-weight: $regular;
@@ -990,9 +1019,11 @@ button:disabled {
 	border-bottom: 1px solid rgba(249, 249, 249, 0.2);
 	padding: 8px 0px;
 	background-color: $authCradBg;
+
 	.header-inner {
 		.navbar {
 			padding: 0px;
+
 			.header-action-btn {
 				display: flex;
 				align-items: center;
@@ -1004,6 +1035,7 @@ button:disabled {
 				outline: none;
 				box-shadow: none;
 			}
+
 			.navbar-brand {
 				img {
 					margin-right: 30px;
@@ -1011,41 +1043,42 @@ button:disabled {
 					object-fit: contain;
 				}
 			}
+
 			.navbar-collapse-inner {
 				display: flex;
 				justify-content: flex-end;
 				align-items: center;
 				width: 100%;
 				gap: 100px;
+
 				.navbar-nav {
 					gap: 15px;
 					border: 1px solid rgba(249, 249, 249, 0.2);
 					border-radius: 40px;
 					padding: 5px 5px;
 					margin-right: 20px;
+
 					.nav-item {
 						.nav-link {
 							color: $whitePrimary;
 							padding: 8px 15px;
 							border-radius: 40px;
 							font-weight: $semiBold;
+
 							&.active,
 							&:hover {
-								background: var(
-									--Gold-Gradient,
-									linear-gradient(
-										97deg,
-										#cea344 18.58%,
-										#ffda88 53.77%,
-										#cea344 93.98%
-									)
-								);
+								background: var(--Gold-Gradient,
+										linear-gradient(97deg,
+											#cea344 18.58%,
+											#ffda88 53.77%,
+											#cea344 93.98%));
 								color: $revenueColor;
 								font-weight: $semiBold;
 							}
 						}
 					}
 				}
+
 				.header-right {
 					display: flex;
 					align-items: center;
@@ -1053,6 +1086,7 @@ button:disabled {
 
 					.user-drop {
 						position: relative;
+
 						.dropdown-toggle {
 							background-color: transparent;
 							padding: 0px;
@@ -1063,9 +1097,11 @@ button:disabled {
 							text-align: left;
 							display: flex;
 							align-items: center;
+
 							&:after {
 								display: none;
 							}
+
 							.arrow-icon {
 								width: 12px;
 								height: 12px;
@@ -1082,12 +1118,15 @@ button:disabled {
 
 							.menu-list {
 								padding: 0px 15px;
+
 								ul {
 									padding: 0px;
 									margin: 0px;
+
 									li {
 										list-style: none;
 										border-bottom: 1px dashed rgba($white, 0.2);
+
 										&:nth-last-child(1) {
 											border-bottom: 0px;
 										}
@@ -1104,15 +1143,18 @@ button:disabled {
 											color: rgba($white, 1);
 											border-radius: 0px;
 											gap: 10px;
+
 											svg {
 												fill: $white;
 												width: 18px;
 												height: 18px;
 												min-width: 18px;
 											}
+
 											&:hover {
 												background-color: transparent;
 												color: rgba($primary, 1);
+
 												svg {
 													fill: $primary;
 												}
@@ -1128,6 +1170,7 @@ button:disabled {
 						display: flex;
 						gap: 10px;
 						align-items: center;
+
 						.user-img {
 							img {
 								border-radius: 50%;
@@ -1137,11 +1180,13 @@ button:disabled {
 								object-fit: cover;
 							}
 						}
+
 						.user-balance {
 							.user-balance-inline {
 								display: flex;
 								align-items: center;
 								gap: 10px;
+
 								p {
 									color: $white;
 									font-size: 18px;
@@ -1153,6 +1198,7 @@ button:disabled {
 									text-overflow: ellipsis;
 								}
 							}
+
 							span {
 								color: rgba($white, 0.7);
 								font-size: 14px;
@@ -1170,10 +1216,12 @@ button:disabled {
 			.navbar {
 				.navbar-collapse-inner {
 					display: block;
+
 					.navbar-nav {
 						padding-top: 10px;
 						border: 0px;
 					}
+
 					.header-right {
 						display: block;
 						padding-top: 10px;
@@ -1193,10 +1241,13 @@ button:disabled {
 						width: 22px;
 					}
 				}
+
 				.navbar-collapse-inner {
 					gap: 10px;
+
 					.navbar-nav {
 						gap: 5px;
+
 						.nav-item {
 							.nav-link {
 								font-size: 14px;
@@ -1204,8 +1255,10 @@ button:disabled {
 							}
 						}
 					}
+
 					.header-right {
 						gap: 20px;
+
 						.user-drop {
 							.dropdown-toggle {
 								.arrow-icon {
@@ -1217,14 +1270,18 @@ button:disabled {
 
 							.dropdown-menu {
 								min-width: 220px;
+
 								.menu-list {
 									padding: 0px 15px;
+
 									ul {
 										padding: 0px;
 										margin: 0px;
+
 										li {
 											list-style: none;
 											border-bottom: 1px dashed rgba($white, 0.2);
+
 											&:nth-last-child(1) {
 												border-bottom: 0px;
 											}
@@ -1241,15 +1298,18 @@ button:disabled {
 												color: rgba($white, 1);
 												border-radius: 0px;
 												gap: 10px;
+
 												svg {
 													fill: $white;
 													width: 18px;
 													height: 18px;
 													min-width: 18px;
 												}
+
 												&:hover {
 													background-color: transparent;
 													color: rgba($primary, 1);
+
 													svg {
 														fill: $primary;
 													}
@@ -1269,10 +1329,12 @@ button:disabled {
 									height: 40px;
 								}
 							}
+
 							.user-balance {
 								p {
 									font-size: 16px;
 								}
+
 								span {
 									font-size: 12px;
 								}
@@ -1302,6 +1364,7 @@ button:disabled {
 		font-weight: $regular;
 		line-height: 20px;
 		border: 1px solid $inputColor;
+
 		.react-date-picker__wrapper {
 			display: flex;
 			align-items: center;
@@ -1318,23 +1381,28 @@ button:disabled {
 			.react-date-picker__inputGroup__leadingZero {
 				width: 19px;
 			}
+
 			.react-date-picker__inputGroup {
 				width: 100%;
+
 				input {
 					padding: 0;
 					border: none;
 					border-radius: 0;
 				}
 			}
+
 			button {
 				background: transparent;
 				border: none;
 				height: auto;
 			}
 		}
+
 		.react-date-picker__calendar {
 			z-index: 2;
 			color: $black;
+
 			.react-calendar__month-view {
 				.react-calendar__month-view__weekdays {
 					.react-calendar__month-view__weekdays__weekday {
@@ -1350,28 +1418,35 @@ button:disabled {
 	.react-date-picker__calendar {
 		.react-calendar {
 			background: #081217;
+
 			.react-calendar__navigation {
 				button {
 					color: $white;
 				}
+
 				button:disabled {
 					background: #081217;
 				}
+
 				.react-calendar__navigation__arrow {
+
 					&:hover,
 					&:focus {
 						background: rgba($primary, 1);
 					}
 				}
+
 				.react-calendar__navigation__label {
 					&:hover {
 						background: rgba($primary, 1);
 					}
+
 					&:enabled:focus {
 						background: rgba($primary, 1);
 					}
 				}
 			}
+
 			.react-calendar__viewContainer {
 				.react-calendar__month-view {
 					.react-calendar__month-view__weekdays {
@@ -1382,21 +1457,25 @@ button:disabled {
 							}
 						}
 					}
+
 					.react-calendar__month-view__days {
 						.react-calendar__tile {
 							&:hover {
 								background-color: rgba($primary, 1);
 							}
 						}
+
 						.react-calendar__tile:disabled {
 							background-color: #081217;
 							color: $white;
 						}
+
 						.react-calendar__month-view__days__day {
 							abbr {
 								color: $white;
 							}
 						}
+
 						.react-calendar__tile--now {
 							background-color: rgba($primary, 1);
 						}
@@ -1409,6 +1488,7 @@ button:disabled {
 						color: $white;
 					}
 				}
+
 				.react-calendar__year-view__months {
 					.react-calendar__tile {
 						background: #081217;
@@ -1431,6 +1511,7 @@ button:disabled {
 //react-time-picker
 .react-time-picker {
 	width: 100%;
+
 	.react-time-picker__wrapper {
 		resize: none;
 		caret-color: $primary;
@@ -1445,19 +1526,23 @@ button:disabled {
 		line-height: 20px;
 		border: 1px solid $inputColor;
 		color: $white;
+
 		.react-time-picker__inputGroup {
 			.react-time-picker__inputGroup__input {
 				outline: none;
 			}
+
 			option {
 				color: rgba($black, 1);
 			}
 		}
+
 		.react-time-picker__clear-button,
 		.react-time-picker__clock-button {
 			svg {
 				stroke: $white;
 			}
+
 			&:hover,
 			&:focus {
 				svg {
@@ -1474,9 +1559,11 @@ button:disabled {
 	align-items: center;
 	gap: 20px;
 	flex-wrap: wrap;
+
 	.custom-checkbox {
 		font-weight: $regular;
 		font-size: 14px;
+
 		.checkmark {
 			top: 0px;
 		}
@@ -1522,6 +1609,7 @@ button:disabled {
 	align-items: center;
 	gap: 6px;
 	justify-content: end;
+
 	button {
 		font-size: 14px;
 		color: $white !important;
@@ -1529,9 +1617,11 @@ button:disabled {
 		padding: 0px !important;
 		border: 0px;
 	}
+
 	span {
 		color: $primary;
 	}
+
 	svg {
 		width: 15px;
 		height: 15px;
@@ -1539,6 +1629,7 @@ button:disabled {
 		cursor: pointer;
 		margin-top: -6px;
 	}
+
 	.date-range-picker-show {
 		position: absolute;
 		top: 60px;
@@ -1547,16 +1638,20 @@ button:disabled {
 
 		.rdrDateRangePickerWrapper {
 			border: 1px solid rgba($white, 0.2);
+
 			.rdrDefinedRangesWrapper {
 				background: #081217;
 				border-right-color: rgba($white, 0.2);
+
 				.rdrStaticRanges {
 					.rdrStaticRange {
 						.rdrStaticRangeLabel {
 							color: #fff;
 						}
+
 						&:hover {
 							background: #cea344;
+
 							.rdrStaticRangeLabel {
 								color: #fff;
 								background: #cea344;
@@ -1564,6 +1659,7 @@ button:disabled {
 						}
 					}
 				}
+
 				.rdrInputRanges {
 					.rdrInputRange {
 						.rdrInputRangeInput {
@@ -1578,35 +1674,42 @@ button:disabled {
 
 			.rdrCalendarWrapper {
 				background: #081217;
+
 				.rdrMonthAndYearWrapper {
 					.rdrNextPrevButton {
 						font-size: 22px;
 						color: $white;
 						background-color: #cea344;
+
 						&.rdrPprevButton {
 							i {
 								border-color: transparent #fff transparent transparent;
 							}
 						}
+
 						&.rdrNextButton {
 							i {
 								border-color: transparent transparent transparent #fff;
 							}
 						}
 					}
+
 					.rdrMonthAndYearPickers {
 						.rdrMonthPicker {
 							select {
 								color: $white;
+
 								option {
 									color: #fff;
 									background-color: #0c1a22;
 								}
 							}
 						}
+
 						.rdrYearPicker {
 							select {
 								color: $white;
+
 								option {
 									color: #fff;
 									background-color: #0c1a22;
@@ -1619,10 +1722,12 @@ button:disabled {
 				.rdrMonths {
 					.rdrWeekDays {
 						background-color: #0c1a22;
+
 						.rdrWeekDay {
 							color: #ffc85a;
 						}
 					}
+
 					.rdrDays {
 						.rdrDay {
 							&.rdrDayPassive {
@@ -1632,6 +1737,7 @@ button:disabled {
 									}
 								}
 							}
+
 							.rdrDayNumber {
 								span {
 									color: #fff;
@@ -1656,6 +1762,7 @@ button:disabled {
 		top: 25px;
 		right: 10px;
 		display: none;
+
 		p {
 			color: $white;
 			font-size: 14px;
@@ -1664,6 +1771,7 @@ button:disabled {
 			opacity: 0.7;
 		}
 	}
+
 	&:hover {
 		.tooltip-content {
 			display: block;
@@ -1684,23 +1792,27 @@ button:disabled {
 	text-align: left !important;
 	bottom: 55px !important;
 	left: 48px !important;
+
 	@media screen and (max-width: 767px) {
 		bottom: 12px !important;
 		text-align: center !important;
 		left: 0 !important;
 		right: 0 !important;
 	}
+
 	@media (min-width: 768px) and (max-width: 991px) {
 		bottom: 12px !important;
 		text-align: center !important;
 		left: 0 !important;
 		right: 0 !important;
 	}
+
 	.swiper-pagination-bullet {
 		background: $white;
 		height: 4px;
 		width: 60px;
 		border-radius: 5px;
+
 		&.swiper-pagination-bullet-active {
 			background: $white;
 		}
