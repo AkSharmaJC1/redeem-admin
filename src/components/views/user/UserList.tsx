@@ -117,7 +117,7 @@ const UserList: React.FC = () => {
 			<div className="container">
 				<div className="page-inner">
 					<div className="common-parent-box mb-4">
-						<div className="row align-items-center">
+						<div className="row align-items-center g-4">
 							<div className="col-md-4">
 								<div className="heading">
 									<h2>{translation("users")}</h2>
