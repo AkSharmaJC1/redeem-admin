@@ -9,4 +9,8 @@ export default defineConfig({
 			'localhost'
 		]
 	},
+    server: {
+    host: true, // listen on all addresses
+    port: 6003, // or your preferred port
+  }
 });
