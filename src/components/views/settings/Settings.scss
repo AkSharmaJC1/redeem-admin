@@ -6,6 +6,12 @@
 	border-bottom: 1px solid rgba($whitePrimary, 0.12);
 	margin-bottom: 20px;
 	padding-bottom: 20px;
+
+	@media only screen and (max-width: 767px) {
+		flex-wrap: wrap;
+	}
+
+
 	.user-image {
 		position: relative;
 		width: fit-content;
@@ -98,6 +104,7 @@
 
 .change-password-section {
 	min-height: calc(100vh - 430px);
+
 	.section-name {
 		h3 {
 			font-size: 20px;
