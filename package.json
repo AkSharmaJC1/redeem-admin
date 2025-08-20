@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --port 6003",
 		"build": "tsc -b && vite build --mode development",
 		"build:development": "tsc -b && vite build --mode development",
 		"build:production": "tsc -b && vite build --mode production",
