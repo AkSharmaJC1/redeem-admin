@@ -669,6 +669,10 @@ button:disabled {
 			line-height: 32px;
 			color: $whitePrimary;
 			margin: 0px;
+
+			@media only screen and (max-width: 767px) {
+				margin-bottom: 10px;
+			}
 		}
 	}
 
