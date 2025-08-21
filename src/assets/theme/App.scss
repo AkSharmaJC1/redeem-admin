@@ -684,6 +684,10 @@ button:disabled {
 			align-items: center;
 			gap: 40px;
 
+			@media only screen and (max-width: 767px) {
+				margin-bottom: 15px;
+			}
+
 			li {
 				list-style: none;
 				display: inline-block;
