@@ -406,7 +406,7 @@ const Dashboard: React.FC = () => {
 											<h4> {translation("total_events")}</h4>
 										</div>
 										<div>
-											<div className="date-range-show">
+											<div className="date-range-show left0">
 												<DateRangeSelector
 													dateRangeSelection={dateRangeSelectionForEvent}
 													setDateRangeSelection={setDateRangeSelectionForEvent}

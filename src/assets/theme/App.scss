@@ -1637,7 +1637,10 @@ button:disabled {
 		cursor: pointer;
 		margin-top: -6px;
 	}
-
+	.left0 .date-range-picker-show {
+		right: 0px;
+		left: unset !important;
+	}
 	.date-range-picker-show {
 		position: absolute;
 		top: 60px;

@@ -267,7 +267,7 @@ const BusinessDetail: React.FC = () => {
 											<div className="col-md-12 col-lg-8 col-xl-8">
 												<div className="about-detail">
 													<h3>{translation("about_the_business")}</h3>
-													{businessDetailData?.about.length > 500 ? (
+													{businessDetailData?.about?.length > 500 ? (
 														!showMore ? (
 															<p className="align-btn">
 																{" "}
