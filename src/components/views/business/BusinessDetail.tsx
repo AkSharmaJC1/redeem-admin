@@ -126,14 +126,14 @@ const BusinessDetail: React.FC = () => {
 										<div className="row">
 											<div className="col-md-3">
 												<div className="business-image-slider">
-													{businessDetails && businessDetails.images ? (
+													{businessDetails && businessDetails?.images ? (
 														<Swiper
 															modules={[Pagination]}
 															spaceBetween={50}
 															slidesPerView={1}
 															pagination={{ clickable: true }}
 														>
-															{businessDetails?.images.map((image: string) => {
+															{businessDetails?.images?.map((image: string) => {
 																return (
 																	<SwiperSlide>
 																		<div className="slider-img">
@@ -204,7 +204,7 @@ const BusinessDetail: React.FC = () => {
 																		<a
 																			href={
 																				businessDetailData
-																					.taxExemptionCertificates[0]
+																					?.taxExemptionCertificates[0]
 																			}
 																			target="_blank"
 																			rel="noopener noreferrer"
@@ -271,7 +271,7 @@ const BusinessDetail: React.FC = () => {
 														!showMore ? (
 															<p className="align-btn">
 																{" "}
-																{businessDetailData?.about.slice(0, 500) +
+																{businessDetailData?.about?.slice(0, 500) +
 																	"..."}{" "}
 																<span
 																	className="color-primary cursor-pointer"

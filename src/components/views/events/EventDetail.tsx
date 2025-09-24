@@ -169,7 +169,7 @@ const EventDetail: React.FC = () => {
 										<div className="col-md-3">
 											<div className="business-image-slider">
 												<img
-													src={eventDetails?.images[0] || thumbnailImg}
+													src={eventDetails?.images?.[0] || thumbnailImg}
 													alt="thumbnailImg"
 												/>
 											</div>
