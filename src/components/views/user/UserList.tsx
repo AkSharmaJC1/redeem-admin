@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import useInfiniteScroll from "../../../hooks/useInfiniteScroll";
-import { getUserList, updateUserStatus } from "../../../services/user";
+import { getUserList, updateUserStatus, generatePassword } from "../../../services/user"; // Import generatePassword
 import helper from "../../../utils/helper";
 
 import InputWrapper from "../../formElements/InputWrapper";
@@ -30,6 +30,7 @@ const UserList: React.FC = () => {
 	const [searchText, setSearchText] = useState<string>("");
 	const [firstLoad, setFirstLoad] = useState(true);
 	const [statusLoading, setStatusLoading] = useState<boolean>(false);
+	const [resendPasswordLoading, setResendPasswordLoading] = useState<boolean>(false);
 	const [userStatusData, setUserStatusData] = useState<{
 		showModal: boolean;
 		userId: string;
@@ -38,6 +39,15 @@ const UserList: React.FC = () => {
 		showModal: false,
 		userId: "",
 		isActive: -1,
+	});
+	const [resendPasswordData, setResendPasswordData] = useState<{
+		showModal: boolean;
+		userId: string;
+		userName: string;
+	}>({
+		showModal: false,
+		userId: "",
+		userName: "",
 	});
 
 	const { control } = useForm();
@@ -61,6 +71,7 @@ const UserList: React.FC = () => {
 		debounce(() => getUsersData(true), 1000),
 		[getUsersData]
 	);
+
 	/**
 	 * Search Functionality
 	 */
@@ -106,6 +117,32 @@ const UserList: React.FC = () => {
 		setStatusLoading(false);
 	};
 
+	const handleResendPassword = async () => {
+		setResendPasswordLoading(true);
+		try {
+			const payload: any = {
+				userId: resendPasswordData.userId,
+			};
+			const response = await generatePassword(payload);
+			if (response && response.data?.success) {
+				setResendPasswordData({
+					showModal: false,
+					userId: "",
+					userName: "",
+				});
+				toastMessageSuccess(translation("Password sent successfully!"));
+			} else {
+				toastMessageError(
+					translation(response.data?.message ?? "something_went_wrong")
+				);
+			}
+		} catch (error) {
+			console.error("ERROR: resend password ", error);
+			toastMessageError(translation("something_went_wrong"));
+		}
+		setResendPasswordLoading(false);
+	};
+
 	useEffect(() => {
 		if (userListApiCallMessage) {
 			setFirstLoad(false);
@@ -141,7 +178,7 @@ const UserList: React.FC = () => {
 											>
 												<InputWrapper.Icon
 													src={searchIcon}
-													onClick={() => {}}
+													onClick={() => { }}
 												/>
 											</Searchbox>
 										</InputWrapper>
@@ -178,13 +215,14 @@ const UserList: React.FC = () => {
 											<td>{translation("phone_num")}</td>
 											<td>{translation("date_joined")}</td>
 											<td>{translation("status")}</td>
+											<td>{translation("actions")}</td> {/* New column for actions */}
 										</tr>
 									</thead>
 
 									<tbody>
 										{firstLoad ? (
 											<tr>
-												<td colSpan={6} align="center" className="text-center">
+												<td colSpan={7} align="center" className="text-center"> {/* Updated colSpan */}
 													<SmallLoader />
 												</td>
 											</tr>
@@ -257,18 +295,40 @@ const UserList: React.FC = () => {
 																</label>
 															</div>
 														</td>
+														<td>
+															{/* Resend Password Button */}
+															<button
+																type="button"
+																className="btn text-nowrap btn-outline-primary btn-sm"
+																onClick={(e) => {
+																	e.stopPropagation();
+																	setResendPasswordData({
+																		showModal: true,
+																		userId: user.id,
+																		userName: user.name || user.email,
+																	});
+																}}
+																disabled={resendPasswordLoading}
+															>
+																{resendPasswordLoading ? (
+																	<SmallLoader />
+																) : (
+																	translation("resend_password")
+																)}
+															</button>
+														</td>
 													</tr>
 												);
 											})
 										) : userListLoading ? (
 											<tr>
-												<td colSpan={6} align="center" className="text-center">
+												<td colSpan={7} align="center" className="text-center"> {/* Updated colSpan */}
 													<SmallLoader />
 												</td>
 											</tr>
 										) : (
 											<tr>
-												<td colSpan={6} className="text-center">
+												<td colSpan={7} className="text-center"> {/* Updated colSpan */}
 													<p className="m-0 text-white">
 														{translation("no_record_found")}
 													</p>
@@ -282,6 +342,8 @@ const UserList: React.FC = () => {
 					</div>
 				</div>
 			</div>
+
+			{/* User Status Update Modal */}
 			{userStatusData.showModal && (
 				<ConfirmationModal
 					onClickOkay={handleUserStatus}
@@ -296,6 +358,26 @@ const UserList: React.FC = () => {
 					loading={statusLoading}
 					heading={translation("user_status_update_heading")}
 					paragraph={translation("user_status_update_paragraph")}
+				/>
+			)}
+
+			{/* Resend Password Confirmation Modal */}
+			{resendPasswordData.showModal && (
+				<ConfirmationModal
+					onClickOkay={handleResendPassword}
+					onClickCancel={() =>
+						setResendPasswordData({
+							showModal: false,
+							userId: "",
+							userName: "",
+						})
+					}
+					disabled={resendPasswordLoading}
+					loading={resendPasswordLoading}
+					heading={translation("resend_password_heading")}
+					paragraph={translation("resend_password_paragraph", {
+						userName: resendPasswordData.userName
+					})}
 				/>
 			)}
 		</div>

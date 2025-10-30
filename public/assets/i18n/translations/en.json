@@ -309,7 +309,7 @@
 	"in-active": "In-Active",
 	"no_data_found": "No Data Found!",
 	"pls_try_again": "Please try Again",
-    "amount": "Amount",
+	"amount": "Amount",
 	"transaction_date": "Transaction Date",
 	"transaction_id": "Transaction ID",
 	"approval_requests": "Approval Requests",
@@ -371,5 +371,9 @@
 	"non_profit_org": "Non Profit Org",
 	"business_events_booking_not_found": "Business events booking not found",
 	"event_not_found": "Event not found",
-	"session_expired": "Session expired, Please login again"
+	"session_expired": "Session expired, Please login again",
+	"resend_password": "Resend Password",
+	"resend_password_heading": "Resend Password",
+	"resend_password_paragraph": "Are you sure you want to resend the password for {{userName}}?",
+	"actions": "Actions"
 }

@@ -39,6 +39,13 @@ export const updateUserStatus = (
 	return http.put(endpoints.ADMIN.CHANGE_USER_STATUS, data);
 };
 
+export const generatePassword = (
+	data: IUpdateUserStatus
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+): Promise<ApiResponse | any> => {
+	return http.post("/admin/generate-password", data);
+};
+
 /**
  * Get User List
  * @param data
