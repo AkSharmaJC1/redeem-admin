@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import useInfiniteScroll from "../../../hooks/useInfiniteScroll";
-import { getUserList, updateUserStatus, generatePassword } from "../../../services/user"; // Import generatePassword
+import { getUserList, updateUserStatus, generatePassword, logoutUser } from "../../../services/user"; // Import logoutUser
 import helper from "../../../utils/helper";
 
 import InputWrapper from "../../formElements/InputWrapper";
@@ -31,6 +31,7 @@ const UserList: React.FC = () => {
 	const [firstLoad, setFirstLoad] = useState(true);
 	const [statusLoading, setStatusLoading] = useState<boolean>(false);
 	const [resendPasswordLoading, setResendPasswordLoading] = useState<boolean>(false);
+	const [logoutLoading, setLogoutLoading] = useState<boolean>(false); // New state for logout loading
 	const [userStatusData, setUserStatusData] = useState<{
 		showModal: boolean;
 		userId: string;
@@ -41,6 +42,15 @@ const UserList: React.FC = () => {
 		isActive: -1,
 	});
 	const [resendPasswordData, setResendPasswordData] = useState<{
+		showModal: boolean;
+		userId: string;
+		userName: string;
+	}>({
+		showModal: false,
+		userId: "",
+		userName: "",
+	});
+	const [logoutUserData, setLogoutUserData] = useState<{ // New state for logout user
 		showModal: boolean;
 		userId: string;
 		userName: string;
@@ -115,6 +125,33 @@ const UserList: React.FC = () => {
 			console.error("ERROR: update User Status ", error);
 		}
 		setStatusLoading(false);
+	};
+
+	const handleUserLogout = async () => {
+		setLogoutLoading(true);
+		try {
+			const payload = {
+				userId: logoutUserData.userId,
+				isCleared:true
+			};
+			const response = await updateUserStatus(payload);
+			if (response && response.data?.success) {
+				setLogoutUserData({
+					showModal: false,
+					userId: "",
+					userName: "",
+				});
+				toastMessageSuccess(translation(response.data.message || "user_logged_out_successfully"));
+			} else {
+				toastMessageError(
+					translation(response.data?.message ?? "something_went_wrong")
+				);
+			}
+		} catch (error) {
+			console.error("ERROR: logout user ", error);
+			toastMessageError(translation("something_went_wrong"));
+		}
+		setLogoutLoading(false);
 	};
 
 	const handleResendPassword = async () => {
@@ -215,14 +252,14 @@ const UserList: React.FC = () => {
 											<td>{translation("phone_num")}</td>
 											<td>{translation("date_joined")}</td>
 											<td>{translation("status")}</td>
-											<td>{translation("actions")}</td> {/* New column for actions */}
+											<td>{translation("actions")}</td>
 										</tr>
 									</thead>
 
 									<tbody>
 										{firstLoad ? (
 											<tr>
-												<td colSpan={7} align="center" className="text-center"> {/* Updated colSpan */}
+												<td colSpan={7} align="center" className="text-center">
 													<SmallLoader />
 												</td>
 											</tr>
@@ -296,39 +333,62 @@ const UserList: React.FC = () => {
 															</div>
 														</td>
 														<td>
-															{/* Resend Password Button */}
-															<button
-																type="button"
-																className="btn text-nowrap btn-outline-primary btn-sm"
-																onClick={(e) => {
-																	e.stopPropagation();
-																	setResendPasswordData({
-																		showModal: true,
-																		userId: user.id,
-																		userName: user.name || user.email,
-																	});
-																}}
-																disabled={resendPasswordLoading}
-															>
-																{resendPasswordLoading ? (
-																	<SmallLoader />
-																) : (
-																	translation("resend_password")
-																)}
-															</button>
+															<div className="d-flex gap-2">
+																{/* Resend Password Button */}
+																<button
+																	type="button"
+																	className="btn text-nowrap btn-outline-primary btn-sm"
+																	onClick={(e) => {
+																		e.stopPropagation();
+																		setResendPasswordData({
+																			showModal: true,
+																			userId: user.id,
+																			userName: user.name || user.email,
+																		});
+																	}}
+																	disabled={resendPasswordLoading}
+																>
+																	{resendPasswordLoading ? (
+																		<SmallLoader />
+																	) : (
+																		translation("resend_password")
+																	)}
+																</button>
+
+																{/* Logout User Button */}
+																<button
+																	type="button"
+																	className="btn text-nowrap btn-outline-warning btn-sm"
+																	onClick={(e) => {
+																		e.stopPropagation();
+																		setLogoutUserData({
+																			showModal: true,
+																			userId: user.id,
+																			userName: user.name || user.email,
+																		});
+																	}}
+																	disabled={logoutLoading}
+																>
+																	{logoutLoading ? (
+																		<SmallLoader />
+																	) : (
+																		translation("Logout User")
+																	)}
+																</button>
+															</div>
 														</td>
 													</tr>
 												);
 											})
 										) : userListLoading ? (
 											<tr>
-												<td colSpan={7} align="center" className="text-center"> {/* Updated colSpan */}
+												<td colSpan={7} align="center" className="text-center">
 													<SmallLoader />
 												</td>
 											</tr>
 										) : (
 											<tr>
-												<td colSpan={7} className="text-center"> {/* Updated colSpan */}
+												<td colSpan={7} className="text-center">
 													<p className="m-0 text-white">
 														{translation("no_record_found")}
 													</p>
@@ -378,6 +438,24 @@ const UserList: React.FC = () => {
 					paragraph={translation("resend_password_paragraph", {
 						userName: resendPasswordData.userName
 					})}
+				/>
+			)}
+
+			{/* Logout User Confirmation Modal */}
+			{logoutUserData.showModal && (
+				<ConfirmationModal
+					onClickOkay={handleUserLogout}
+					onClickCancel={() =>
+						setLogoutUserData({
+							showModal: false,
+							userId: "",
+							userName: "",
+						})
+					}
+					disabled={logoutLoading}
+					loading={logoutLoading}
+					heading={translation("Logout User")}
+					paragraph={translation("Are you sure you want to logout this user ?")}
 				/>
 			)}
 		</div>

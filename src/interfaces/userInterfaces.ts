@@ -11,7 +11,8 @@ export interface IUserList {
 
 export interface IUpdateUserStatus {
 	userId: string;
-	isActive: number;
+	isActive?: number;
+	isClear?:any;
 }
 
 interface IAddress {
