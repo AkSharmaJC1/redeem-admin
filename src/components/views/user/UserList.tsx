@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import useInfiniteScroll from "../../../hooks/useInfiniteScroll";
-import { getUserList, updateUserStatus, generatePassword, logoutUser } from "../../../services/user"; // Import logoutUser
+import { getUserList, updateUserStatus, generatePassword } from "../../../services/user"; // Import logoutUser
 import helper from "../../../utils/helper";
 
 import InputWrapper from "../../formElements/InputWrapper";
