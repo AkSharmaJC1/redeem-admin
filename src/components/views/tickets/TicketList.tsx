@@ -262,9 +262,9 @@ const TicketList: React.FC = () => {
                             </td>
                             <td>
                               <div className="subject-text" title={ticket.subject}>
-                                {ticket.subject.length > 50
+                                {ticket?.subject?.length > 50
                                   ? `${ticket.subject.substring(0, 50)}...`
-                                  : ticket.subject}
+                                  : ticket.subject || "--"}
                               </div>
                             </td>
                             {/* <td>{getStatusDisplay(ticket.status)}</td> */}
