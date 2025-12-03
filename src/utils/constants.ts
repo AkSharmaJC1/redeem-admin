@@ -9,6 +9,7 @@ export const ROUTES = {
 	EVENT_LIST: "/event-list",
 	USER_LIST: "/user-list",
 	TRANSACTIONS_LIST: "/transactions-list",
+	SUPPORT_LIST: "/support-list",
 	USER_DETAIL: "/user-detail/:userId",
 	DASHBOARD: "/",
 	SETTINGS: "/settings",

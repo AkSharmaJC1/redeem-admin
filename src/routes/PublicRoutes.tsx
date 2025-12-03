@@ -17,6 +17,7 @@ import Header from "../components/header/Header";
 import Settings from "../components/views/settings/Settings";
 import Dashboard from "../components/views/dashboard/Dashboard";
 import LottieLoader from "../components/lottieLoader/LottieLoader";
+import TicketList from "../components/views/tickets/TicketList";
 // import ApprovalRequests from "../components/views/approval/ApprovalRequests";
 
 const PublicPrivateRoutes: React.FC = () => {
@@ -39,6 +40,10 @@ const PublicPrivateRoutes: React.FC = () => {
 										<Route
 											path={ROUTES.BUSINESS_LIST}
 											element={<BusinessList />}
+										/>
+										<Route
+											path={ROUTES.SUPPORT_LIST}
+											element={<TicketList />}
 										/>
 										<Route path={ROUTES.USER_DETAIL} element={<UserDetail />} />
 										<Route

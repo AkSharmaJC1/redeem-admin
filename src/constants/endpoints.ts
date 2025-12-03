@@ -47,4 +47,7 @@ export default {
 	TRANSACTION: {
 		TRANSACTIONS_LIST: "/transactions/transactions-list",
 	},
+	SUPPORT: {
+		SUPPORT_TICKET_LIST: "/support-tickets/get-tickets",
+	},
 } as const;

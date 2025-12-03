@@ -119,6 +119,18 @@ const Header = () => {
 												{translation("transactions")}
 											</Link>
 										</li>
+										<li className="nav-item">
+											<Link
+												className={`${
+													pathname === ROUTES.SUPPORT_LIST
+														? "active nav-link"
+														: "nav-link"
+												}`}
+												to={ROUTES.SUPPORT_LIST}
+											>
+												{translation("Support tickets")}
+											</Link>
+										</li>
 										{/* CLIENT REQUEST */}
 										{/* <li className="nav-item">
 											<Link

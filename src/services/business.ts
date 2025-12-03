@@ -31,6 +31,18 @@ export const getBusinessList = ({
 	);
 };
 
+export const getTicketsList = ({
+	offset,
+	limit,
+	search_text,
+}: ICommonDataForApi): Promise<ApiResponse> => {
+	return http.get(
+		`${endpoints.SUPPORT.SUPPORT_TICKET_LIST}?offset=${offset}&limit=${limit}${
+			search_text ? `&searchQuery=${search_text.trim()}` : ""
+		}`
+	);
+};
+
 /**
  * Get Pending Business List
  * @param data
