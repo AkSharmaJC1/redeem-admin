@@ -284,7 +284,7 @@ const TicketList: React.FC = () => {
                       <tr>
                         <td colSpan={7}>
                           <p className="text-center text-white">
-                            {translation("no_tickets_found")}
+                            {translation("No Tickets Found")}
                           </p>
                         </td>
                       </tr>
