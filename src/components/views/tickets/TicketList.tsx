@@ -11,8 +11,8 @@ import { LIST_RECORDS_LIMIT } from "../../../constants/commonConstant";
 import SmallLoader from "../../utilities/smallLoader";
 import InputWrapper from "../../formElements/InputWrapper";
 import Searchbox from "../../formElements/SearchBox";
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../utils/constants";
+// import { useNavigate } from "react-router-dom";
+// import { ROUTES } from "../../../utils/constants";
 import helper from "../../../utils/helper";
 
 interface ITicket {
@@ -40,18 +40,18 @@ const INQUIRY_TYPE_MAP: Record<string, string> = {
   partnership: "Partnership",
 };
 
-const STATUS_MAP: Record<string, { label: string; className: string }> = {
-  pending: { label: "Pending", className: "status-pending" },
-  in_progress: { label: "In Progress", className: "status-in-progress" },
-  resolved: { label: "Resolved", className: "status-resolved" },
-  closed: { label: "Closed", className: "status-closed" },
-};
+// const STATUS_MAP: Record<string, { label: string; className: string }> = {
+//   pending: { label: "Pending", className: "status-pending" },
+//   in_progress: { label: "In Progress", className: "status-in-progress" },
+//   resolved: { label: "Resolved", className: "status-resolved" },
+//   closed: { label: "Closed", className: "status-closed" },
+// };
 
 const TicketList: React.FC = () => {
   const { t: translation } = useTranslation();
   const [searchValue, setSearchValue] = useState("");
   const [firstLoad, setFirstLoad] = useState(true);
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
   const { control } = useForm();
 
   const {
@@ -108,14 +108,14 @@ const TicketList: React.FC = () => {
     return INQUIRY_TYPE_MAP[type] || type.replace(/_/g, " ");
   };
 
-  const getStatusDisplay = (status: string) => {
-    const statusInfo = STATUS_MAP[status] || { label: status, className: "status-default" };
-    return (
-      <span className={`status-badge ${statusInfo.className}`}>
-        {statusInfo.label}
-      </span>
-    );
-  };
+//   const getStatusDisplay = (status: string) => {
+//     const statusInfo = STATUS_MAP[status] || { label: status, className: "status-default" };
+//     return (
+//       <span className={`status-badge ${statusInfo.className}`}>
+//         {statusInfo.label}
+//       </span>
+//     );
+//   };
 
   useEffect(() => {
     if (searchValue) {
@@ -212,7 +212,7 @@ const TicketList: React.FC = () => {
                         </td>
                       </tr>
                     ) : data?.length > 0 ? (
-                      data.map((ticket: ITicket, index: number) => {
+                      data.map((ticket: ITicket) => {
                         return (
                           <tr
                             className="cursor-pointer"
