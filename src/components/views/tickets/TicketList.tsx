@@ -244,7 +244,7 @@ const TicketList: React.FC = () => {
                             <td>
                               <a
                                 href={`mailto:${ticket.email}`}
-                                className="text-primary"
+                                className="text-primary text-lowercase"
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 {ticket.email}
