@@ -158,7 +158,7 @@ const TicketList: React.FC = () => {
                           setSearchValue(e.target.value);
                         }}
                         className="form-control"
-                        placeholder={translation("search_tickets")}
+                        placeholder={translation("Search tickets")}
                         align="right"
                       >
                         <InputWrapper.Icon
