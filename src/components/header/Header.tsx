@@ -27,6 +27,7 @@ const Header = () => {
 		signOut();
 		setLoading(false);
 	};
+	
 
 	return (
 		<>
@@ -212,3 +213,4 @@ const Header = () => {
 	);
 };
 export default Header;
+
