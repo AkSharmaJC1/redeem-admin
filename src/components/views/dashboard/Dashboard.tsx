@@ -575,12 +575,6 @@ const pageViewsChartOptions = {
 		fetchCategories();
 	}, []);
 
-	// Calculate total users from analytics
-	const getTotalUsersFromAnalytics = () => {
-		const usersByCountry = googleAnalyticsList?.usersByCountry || {};
-		return Object.values(usersByCountry).reduce((sum, count) => sum + count, 0);
-	};
-
 	return (
 		<div className="add-event-page pt-5 pb-5">
 			<div className="container">
