@@ -22,6 +22,7 @@ const Header = () => {
 	const [showModal, setShowModal] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(false);
 	const navigate = useNavigate();
+	
 	const handleLogout = () => {
 		setLoading(true);
 		signOut();
@@ -212,5 +213,6 @@ const Header = () => {
 	);
 };
 export default Header;
+
 
 
