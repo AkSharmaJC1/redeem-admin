@@ -136,3 +136,17 @@
 		}
 	}
 }
+
+.analytic-bg{
+	.card{
+		background: $themeCradBg;
+		color: #fff;
+	}
+	.legend-items{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 5px;
+		
+	}
+}

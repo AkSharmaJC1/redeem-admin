@@ -55,3 +55,7 @@ export const fetchGraphData = async ({
 	});
 	return data;
 };
+
+export const getGoogleAnalytics = () => {
+	return http.get("/admin/google/get-analyitcs");
+};
